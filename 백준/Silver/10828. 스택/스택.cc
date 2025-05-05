@@ -4,6 +4,9 @@
 using namespace std;
 
 int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
     stack<int> s;
     int N;
     cin >> N;
