@@ -1,49 +1,42 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+import java.util.Scanner;
 
-int main(){
-    int T;
-    cin >> T;
-    for(int t = 1; t <= T; t++){
-        int N;
-        cin >> N;
-        vector<vector<int>> v(N, vector<int>(N));
-        for(int i = 0; i < N; i++){
-            for(int j = 0; j < N; j++){
-                cin >> v[i][j];
-            }
-        }
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
 
-        vector<vector<int>> r(N * 3, vector<int>(N * 3));
-        //90도
-        for(int x = 0; x < N; x++){
-            for(int y = 0; y < N; y++){
-                r[x][y] = v[N - 1 - y][x];
-            }
-        }
-        //180도
-        for(int x = 0; x < N; x++){
-            for(int y = 0; y < N; y++){
-                r[x][N + y] = v[N - 1 -x][N - 1 - y];
-            }
-        }
-        //270도
-        for(int x = 0; x < N; x++){
-            for(int y = 0; y < N; y++){
-                r[x][2 * N + y] = v[y][N - 1 - x];
-            }
-        }
-        cout << "#" << t << '\n';
-        for(int i = 0; i < N; i++){
-            for(int j = 0; j < 3 * N; j += N){
-                for(int k = j; k < N + j; k++){
-                    cout << r[i][k];
+        for (int t = 1; t <= T; t++) {
+            int N = sc.nextInt();
+            int[][] matrix = new int[N][N];
+
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    matrix[i][j] = sc.nextInt();
                 }
-                cout << ' ';
             }
-            cout << '\n';
+
+            String[][] result = new String[N][3];
+
+            for (int i = 0; i < N; i++) {
+                StringBuilder rotate90 = new StringBuilder();
+                StringBuilder rotate180 = new StringBuilder();
+                StringBuilder rotate270 = new StringBuilder();
+
+                for (int j = 0; j < N; j++) {
+                    rotate90.append(matrix[N - 1 - j][i]);
+                    rotate180.append(matrix[N - 1 - i][N - 1 - j]);
+                    rotate270.append(matrix[j][N - 1 - i]);
+                }
+
+                result[i][0] = rotate90.toString();
+                result[i][1] = rotate180.toString();
+                result[i][2] = rotate270.toString();
+            }
+
+            System.out.println("#" + t);
+            for (int i = 0; i < N; i++) {
+                System.out.println(result[i][0] + " " + result[i][1] + " " + result[i][2]);
+            }
         }
     }
-    return 0;
 }
