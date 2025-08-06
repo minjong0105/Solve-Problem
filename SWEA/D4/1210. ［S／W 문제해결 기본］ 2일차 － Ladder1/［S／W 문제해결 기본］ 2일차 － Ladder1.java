@@ -1,18 +1,20 @@
 import java.util.*;
+import java.io.*;
 
 public class Solution {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args)throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         for(int test_case = 1; test_case <= 10; test_case++){
-            int T = sc.nextInt();
+            int T = Integer.parseInt(br.readLine());
             int[][] map = new int[100][100];
 
             int end = 0;
 
             for(int i = 0; i < 100; i++){
+                StringTokenizer st = new StringTokenizer(br.readLine());
                 for(int j = 0; j < 100; j++){
-                    map[i][j] = sc.nextInt();
+                    map[i][j] = Integer.parseInt(st.nextToken());
                     if(map[i][j] == 2){
                         end = j;
                     }
