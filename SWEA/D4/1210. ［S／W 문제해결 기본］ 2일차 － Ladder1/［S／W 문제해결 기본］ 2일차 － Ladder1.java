@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        for(int test_case = 1; test_case <= 10; test_case++){
+            int T = sc.nextInt();
+            int[][] map = new int[100][100];
+
+            int end = 0;
+
+            for(int i = 0; i < 100; i++){
+                for(int j = 0; j < 100; j++){
+                    map[i][j] = sc.nextInt();
+                    if(map[i][j] == 2){
+                        end = j;
+                    }
+                }
+            }
+            int row = 99;
+            int col = end;
+
+            while(row > 0){
+                if(col > 0 && map[row][col - 1] == 1){
+                    while(col > 0 && map[row][col - 1] == 1){
+                        col--;
+                    }
+                }
+                else if(col < 99 && map[row][col + 1] == 1){
+                    while(col < 99 && map[row][col + 1] == 1){
+                        col++;
+                    }
+                }
+
+                row--;
+            }
+
+            System.out.println("#" + test_case + " " + col);
+        }
+    }
+}
