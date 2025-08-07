@@ -5,9 +5,10 @@ public class Main {
     static int N, M;
     static int[] ans;
     public static void main(String[] args) throws IOException{
-        Scanner sc = new Scanner(System.in);
-        N = sc.nextInt();
-        M = sc.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
 
         ans = new int[M];
 
