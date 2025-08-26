@@ -15,7 +15,7 @@ public class Main {
 
         for(int i = 0; i <= N; i++){
             parent[i] = i;
-            rank[i] = 1;
+            rank[i] = 0;            //rank 초기값은 0
         }
 
         for(int i = 0; i < M; i++) {
@@ -24,7 +24,7 @@ public class Main {
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
 
-            if(num == 0){
+            if(num == 0){       //합치기
                 union(a, b);
             }else {             //num == 1
                 if(find(a) == find(b)){
@@ -37,21 +37,23 @@ public class Main {
 
     }
 
-    public static void union(int a, int b) {
+    public static void union(int a, int b) {        //합치기
         int rootA = find(a);
         int rootB = find(b);
 
-        if(rootA > rootB){
-            parent[rootB] = rootA;
-        }else if(rootA < rootB){
-            parent[rootA] = rootB;
-        }else{          // rootA == rootB
-            parent[rootB] = rootA;
-            rank[rootA]++;
+        if(rootA != rootB) {                        //A와 B가 서로 다른 집합에 속했을 경우
+            if (rank[rootA] > rank[rootB]) {        //A가 B보다 크면
+                parent[rootB] = rootA;              //B가 A 아래로
+            } else if (rank[rootA] < rank[rootB]) {
+                parent[rootA] = rootB;
+            } else {          // rootA == rootB --> 이 경우에는 A, B 누가 루트가 되는지 상관x
+                parent[rootB] = rootA;
+                rank[rootA]++;
+            }
         }
     }
 
-    public static int find(int x) {
+    public static int find(int x) {             //루트 노드 찾는거
         if(x == parent[x]){
             return x;
         }
