@@ -1,0 +1,30 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+        int[] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = i + 1;
+        }
+        for (int k = 0; k < M; k++) {
+            st = new StringTokenizer(br.readLine());
+            int i = Integer.parseInt(st.nextToken()) - 1;
+            int j = Integer.parseInt(st.nextToken()) - 1;
+            while (i < j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
+            }
+        }
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+    }
+}
