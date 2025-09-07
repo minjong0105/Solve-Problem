@@ -243,6 +243,7 @@
 |2458. 키 순서|[링크](./%EB%B0%B1%EC%A4%80/Gold/2458.%E2%80%85%ED%82%A4%E2%80%85%EC%88%9C%EC%84%9C/README.md)|
 |2565. 전깃줄|[링크](./%EB%B0%B1%EC%A4%80/Gold/2565.%E2%80%85%EC%A0%84%EA%B9%83%EC%A4%84/README.md)|
 |4195. 친구 네트워크|[링크](./%EB%B0%B1%EC%A4%80/Gold/4195.%E2%80%85%EC%B9%9C%EA%B5%AC%E2%80%85%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/README.md)|
+|9251. LCS|[링크](./%EB%B0%B1%EC%A4%80/Gold/9251.%E2%80%85LCS/README.md)|
 ### 🚀 Silver
 | 문제번호 | 링크 |
 | ----- | ----- |
