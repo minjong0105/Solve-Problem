@@ -8,55 +8,50 @@ public class Main {
 
         int V = Integer.parseInt(st.nextToken());
         int E = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(br.readLine()) - 1;
+        int K = Integer.parseInt(br.readLine());
 
-        List<List<int[]>> graph = new ArrayList<>();
-
-        for (int i = 0; i < V; i++) {
-            graph.add(new ArrayList<>());
+        ArrayList<int[]>[] graph = new ArrayList[V + 1];
+        for(int i = 1; i <= V; i++){
+            graph[i] = new ArrayList<>();
         }
 
-        for (int i = 0; i < E; i++) {
+        for(int i = 0; i < E; i++){
             st = new StringTokenizer(br.readLine());
-            int u = Integer.parseInt(st.nextToken()) - 1;
-            int v = Integer.parseInt(st.nextToken()) - 1;
+            int u = Integer.parseInt(st.nextToken());
+            int v = Integer.parseInt(st.nextToken());
             int w = Integer.parseInt(st.nextToken());
-            graph.get(u).add(new int[] { v, w }); // u에서 v로 가는 가중치가 w인 간선
+            graph[u].add(new int[]{v, w});
         }
 
-        int[] dist = new int[V];
+        PriorityQueue<int[]> pq = new PriorityQueue<>((o1, o2) -> o1[1] - o2[1]);
+        int[] dist = new int[V + 1];
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[K] = 0;
-
-        // {정점 번호, 거리} 거리를 기준으로 오름차순 정렬
-        PriorityQueue<int[]> pq = new PriorityQueue<>((o1, o2) -> o1[1] - o2[1]);
-
-        pq.add(new int[] { K, 0 });
-
-        while (!pq.isEmpty()) {
-            int[] cur = pq.poll();
-            int u = cur[0];
-            int d = cur[1];
-            if (dist[u] < d) // 더 짧은 경로 이미 있으면 컷
-                continue;
-            for (int[] next : graph.get(u)) {
+        pq.offer(new int[]{K, 0});
+        while(!pq.isEmpty()){
+            int[] current = pq.poll();
+            int u = current[0];
+            int d = current[1];
+            if(dist[u] < d) continue;
+            for(int[] next : graph[u]){
                 int v = next[0];
                 int w = next[1];
-                if (dist[v] > dist[u] + w) { // 더 짧은 경로 찾으면
-                    dist[v] = dist[u] + w; // 갱신
-                    pq.add(new int[] { v, dist[v] }); // 갱신 정보를 큐에 추가
+                if(dist[v] > d + w){
+                    dist[v] = d + w;
+                    pq.offer(new int[]{v, dist[v]});
                 }
             }
         }
 
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < V; i++) {
-            if (dist[i] == Integer.MAX_VALUE) {
-                sb.append("INF\n");
-            } else {
-                sb.append(dist[i] + "\n");
+        for(int i = 1; i <= V; i++){
+            if(dist[i] == Integer.MAX_VALUE){
+                sb.append("INF").append('\n');
+            }else{
+                sb.append(dist[i]).append('\n');
             }
         }
-        System.out.print(sb);
+
+        System.out.println(sb);
     }
 }
