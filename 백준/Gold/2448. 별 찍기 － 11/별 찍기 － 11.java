@@ -13,9 +13,7 @@ public class Main {
         arr = new char[N][2 * N - 1];
 
         for (int i = 0; i < N; i++) {
-            for (int j = 0; j < 2 * N - 1; j++) {
-                arr[i][j] = ' ';
-            }
+            Arrays.fill(arr[i], ' ');
         }
 
         fx(N, 0, N - 1); // 24, 47, 24
