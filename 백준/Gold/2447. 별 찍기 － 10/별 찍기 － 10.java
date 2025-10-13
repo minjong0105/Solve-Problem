@@ -10,12 +10,12 @@ public class Main {
 
         int N = Integer.parseInt(br.readLine());
 
+        //별을 문자열 배열에 박을거임
         arr = new char[N][N];
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                arr[i][j] = ' ';
-            }
+        //공백으로 채우기
+        for (char[] i : arr) {
+            Arrays.fill(i, ' ');
         }
 
         fx(N, 0, 0);
@@ -27,6 +27,8 @@ public class Main {
         System.out.println(sb);
     }
 
+    //분할 정복
+    //r, c을 ㅁ 모양의 좌상단 시작점 좌표로 정했음
     public static void fx(int n, int r, int c) {
         if (n == 3) {
             arr[r][c] = '*';
