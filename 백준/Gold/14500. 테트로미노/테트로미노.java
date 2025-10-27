@@ -39,6 +39,7 @@ public class Main {
         System.out.println(max);
     }
 
+    //ㅗ 모양 말고는 다 한붓긋기? 이게 됨 << 얘네들은 dfs로 처리 가능
     public static void dfs(int r, int c, int d, int sum) {
         if (d == 4) {
             max = Math.max(sum, max);
@@ -57,6 +58,7 @@ public class Main {
         }
     }
 
+    //ㅗ, ㅜ, ㅏ, ㅓ 모양 따로 처리
     public static void fxxk(int r, int c) {
         for (int i = 0; i < 4; i++) {
             int nr = r + dy[i];
