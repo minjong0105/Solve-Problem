@@ -44,13 +44,15 @@ public class Main {
     }
 
     public static int start(int[] arr, int count) {
+        // 두 번째 전구부터 시작해줌
         for (int i = 1; i < N; i++) {
+            // i - 1번 전구를 목표와 똑같게 만들어주면서 진행할거임
             if (arr[i - 1] != want[i - 1]) {
                 count++;
-                if (i == N - 1) {
+                if (i == N - 1) { // 마지막 전구는 본인과 본인 전꺼 두개만 바뀌니까 따로 처리
                     arr[i - 1] = 1 - arr[i - 1];
                     arr[i] = 1 - arr[i];
-                } else {
+                } else { // i - 1, i, i + 1 전구 바꿔주기
                     arr[i - 1] = 1 - arr[i - 1];
                     arr[i] = 1 - arr[i];
                     arr[i + 1] = 1 - arr[i + 1];
@@ -58,17 +60,12 @@ public class Main {
             }
         }
 
+        // 끝까지 와서 마지막 전구가 똑같으면 완성한거임
         if (arr[N - 1] == want[N - 1]) {
             return count;
         } else {
             return 100001;
         }
 
-    }
-
-    public static void change(int i) {
-        if (i > 0) {
-
-        }
     }
 }
