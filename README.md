@@ -336,6 +336,7 @@
 |9019. DSLR|[링크](./%EB%B0%B1%EC%A4%80/Gold/9019.%E2%80%85DSLR/README.md)|
 |9084. 동전|[링크](./%EB%B0%B1%EC%A4%80/Gold/9084.%E2%80%85%EB%8F%99%EC%A0%84/README.md)|
 |9251. LCS|[링크](./%EB%B0%B1%EC%A4%80/Gold/9251.%E2%80%85LCS/README.md)|
+|9252. LCS 2|[링크](./%EB%B0%B1%EC%A4%80/Gold/9252.%E2%80%85LCS%E2%80%852/LCS%E2%80%852.java)|
 |9466. 텀 프로젝트|[링크](./%EB%B0%B1%EC%A4%80/Gold/9466.%E2%80%85%ED%85%80%E2%80%85%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%ED%85%80%E2%80%85%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.java)|
 |9663. N－Queen|[링크](./%EB%B0%B1%EC%A4%80/Gold/9663.%E2%80%85N%EF%BC%8DQueen/README.md)|
 ### 🚀 Silver
