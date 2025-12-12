@@ -276,6 +276,7 @@
 | 문제번호 | 링크 |
 | ----- | ----- |
 |10026. 적록색약|[링크](./%EB%B0%B1%EC%A4%80/Gold/10026.%E2%80%85%EC%A0%81%EB%A1%9D%EC%83%89%EC%95%BD/README.md)|
+|1005. ACM Craft|[링크](./%EB%B0%B1%EC%A4%80/Gold/1005.%E2%80%85ACM%E2%80%85Craft/ACM%E2%80%85Craft.java)|
 |1038. 감소하는 수|[링크](./%EB%B0%B1%EC%A4%80/Gold/1038.%E2%80%85%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%E2%80%85%EC%88%98/README.md)|
 |1043. 거짓말|[링크](./%EB%B0%B1%EC%A4%80/Gold/1043.%E2%80%85%EA%B1%B0%EC%A7%93%EB%A7%90/%EA%B1%B0%EC%A7%93%EB%A7%90.java)|
 |1074. Z|[링크](./%EB%B0%B1%EC%A4%80/Gold/1074.%E2%80%85Z/README.md)|
