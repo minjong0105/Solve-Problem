@@ -1,13 +1,15 @@
+import java.util.*;
+
 class Solution {
     public int solution(String[] strArr) {
-        int[] count = new int[31];
+        Map<Integer, Integer> map = new HashMap<>();
         int max = 0;
         
         for (String s : strArr) {
             int len = s.length();
-            count[len]++;
-            
-            max = Math.max(max, count[len]);
+            int count = map.getOrDefault(len, 0) + 1;
+            map.put(len, count);
+            max = Math.max(max, count);
         }
         
         return max;
