@@ -2,10 +2,10 @@ class Solution {
     public String solution(String number, int k) {
         StringBuilder sb = new StringBuilder();
         
-        for(int i = 0; i < number.length(); i++) {
+        for (int i = 0; i < number.length(); i++) {
             char c = number.charAt(i);
             
-            while(sb.length() > 0 && k > 0 && sb.charAt(sb.length() - 1) < c) {
+            while (sb.length() > 0 && k > 0 && sb.charAt(sb.length() - 1) < c) {
                 sb.deleteCharAt(sb.length() - 1);
                 k--;
             }
@@ -13,9 +13,7 @@ class Solution {
             sb.append(c);
         }
         
-        if(k > 0) {
-            sb.setLength(number.length() - k);
-        }
+        sb.setLength(sb.length() - k);
         
         return sb.toString();
     }
