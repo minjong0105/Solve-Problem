@@ -1,26 +1,19 @@
-import java.util.*;
-
 class Solution {
     public long solution(int[] sequence) {
-        long maxX = Long.MIN_VALUE, x = 0;
-        long maxY = Long.MIN_VALUE, y = 0;
+        long plus = sequence[0];
+        long minus = -sequence[0];
+        long ans = Math.max(plus, minus);
         
-        for (int i = 0; i < sequence.length; i++) {
-            long curX;
-            if (i % 2 == 0) {
-                curX = sequence[i];
-            } else {
-                curX = - sequence[i];
-            }
-            long curY = (-1) * curX;
+        for (int i = 1; i < sequence.length; i++) {
+            long nextP = sequence[i] + Math.max(0, minus);
+            long nextM = -sequence[i] + Math.max(0, plus);
             
-            x = Math.max(x + curX, curX);
-            y = Math.max(y + curY, curY);
+            plus = nextP;
+            minus = nextM;
             
-            maxX = Math.max(maxX, x);
-            maxY = Math.max(maxY, y);
+            ans = Math.max(ans, Math.max(plus, minus));
         }
         
-        return Math.max(maxX, maxY);
+        return ans;
     }
 }
