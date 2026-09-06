@@ -8,11 +8,11 @@ class Solution {
         
         int pos = routes[0][1];
         
-        for (int i = 1; i < routes.length; i++) {
-            if (routes[i][0] <= pos) continue;
+        for (int[] route : routes) {
+            if (route[0] <= pos) continue;
             
+            pos = route[1];
             answer++;
-            pos = routes[i][1];
         }
         
         return answer;
