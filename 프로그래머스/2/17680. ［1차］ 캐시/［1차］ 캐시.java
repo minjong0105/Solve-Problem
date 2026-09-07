@@ -4,18 +4,22 @@ class Solution {
     public int solution(int cacheSize, String[] cities) {
         if (cacheSize == 0) return cities.length * 5;
         
-        LinkedList<String> cache = new LinkedList<>();
+        List<String> cache = new ArrayList<>();
         int answer = 0;
         
         for (String city : cities) {
             String key = city.toLowerCase();
             
-            if (cache.remove(key)) {
-                cache.addLast(key);
+            if (cache.contains(key)) {
+                cache.remove(key);
+                cache.add(key);
                 answer += 1;
             } else {
-                if (cache.size() >= cacheSize) cache.removeFirst();
-                cache.addLast(key);
+                if (cache.size() >= cacheSize) {
+                    cache.remove(0);
+                }
+                
+                cache.add(key);
                 answer += 5;
             }
         }
