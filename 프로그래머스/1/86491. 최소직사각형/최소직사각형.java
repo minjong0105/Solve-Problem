@@ -3,12 +3,12 @@ class Solution {
         int maxR = 0;
         int maxC = 0;
         
-        for(int[] size : sizes) {
-            int x = Math.max(size[0], size[1]);
-            int y = Math.min(size[0], size[1]);
+        for (int[] s : sizes) {
+            int a = Math.max(s[0], s[1]);
+            int b = Math.min(s[0], s[1]);
             
-            maxR = Math.max(maxR, x);
-            maxC = Math.max(maxC, y);
+            maxR = Math.max(maxR, a);
+            maxC = Math.max(maxC, b);
         }
         
         return maxR * maxC;
